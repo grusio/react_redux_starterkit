@@ -1,7 +1,8 @@
 import { createSlice } from "redux-starter-kit";
 
 const initialState = {
-    number : 0
+    number : 0,
+    text : ''
 }
 
 const counterSlice = createSlice(
@@ -15,9 +16,13 @@ const counterSlice = createSlice(
             minus : (state) => {
                 state.number-=1;
             },
+            gtext : (state, action) => {
+                console.log('payload ' , action.payload);
+                state.text = action.payload;
+            }
         }
     }
 );
 
-export const { plus,minus } = counterSlice.actions;
+export const { plus,minus,gtext } = counterSlice.actions;
 export default counterSlice.reducer;
